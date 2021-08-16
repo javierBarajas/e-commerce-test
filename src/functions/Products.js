@@ -4,7 +4,7 @@ const mapProduct = async (products) => {
   return products.map(({ id, title, image, price, category, description }) => ({
     id,
     title,
-    image,
+    img: image,
     price: `$${price}`,
     href: `/Product/${id}`,
     category,
@@ -12,7 +12,7 @@ const mapProduct = async (products) => {
   }));
 };
 
-const getAll = async () => {
+export const getAll = async () => {
   return axios
     .get("https://fakestoreapi.com/products")
     .then(function ({ data }) {
@@ -24,7 +24,7 @@ const getAll = async () => {
     });
 };
 
-const getID = (id) => {
+export const getID = (id) => {
   return axios
     .get(`https://fakestoreapi.com/products/${id}`)
     .then(async function ({ data }) {
@@ -38,7 +38,3 @@ const getID = (id) => {
     });
 };
 
-export default {
-  getAll,
-  getID,
-};
