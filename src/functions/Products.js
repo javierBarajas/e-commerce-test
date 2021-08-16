@@ -38,7 +38,7 @@ const getID = (id) => {
     });
 };
 
-module.exports = {
+export default {
   getAll,
   getID,
 };
