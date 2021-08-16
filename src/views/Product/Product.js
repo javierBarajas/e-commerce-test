@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Breadcrumbs } from "../../constants/Product";
 import Title from "../../components/Title";
-import { getID } from "../../functions/Products";
+import functionsProducts from "../../functions/Products";
 
 export default function Product({
   match: {
@@ -11,7 +11,7 @@ export default function Product({
   const [product, setProduct] = useState([]);
 
   const get = async () => {
-    setProduct(await getID(Id));
+    setProduct(await functionsProducts.getID(Id));
   };
 
   useEffect(() => {
