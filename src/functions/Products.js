@@ -6,7 +6,6 @@ const mapProduct = async (products) => {
     title,
     img: image,
     price: `$${price}`,
-    href: `/Product/${id}`,
     category,
     description,
   }));
@@ -36,4 +35,3 @@ export const getID = (id) => {
       return [];
     });
 };
-

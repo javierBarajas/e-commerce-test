@@ -3,7 +3,6 @@ import Product from "../../components/Product";
 import Body from "../../components/Body";
 import { getAll } from "../../functions/Products";
 
-
 export default function Products() {
   const [list, setList] = useState([]);
 

@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import { Breadcrumbs } from "../../constants/Product";
 import Title from "../../components/Title";
 import { getID } from "../../functions/Products";
 
-export default function Product({
-  match: {
-    params: { Id },
-  },
-}) {
+export default function Product() {
+  const { id } = useParams();
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
     const get = async () => {
-      setProduct(await getID(Id));
+      setProduct(await getID(id));
     };
-    
-    Id && get();
-  }, [Id]);
+
+    id && get();
+  }, [id]);
 
   return (
     <div className="bg-white">
@@ -25,9 +23,7 @@ export default function Product({
       </div>
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
-          <ol
-            className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
-          >
+          <ol className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
             {Breadcrumbs.map((breadcrumb) => (
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
