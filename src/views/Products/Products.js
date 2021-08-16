@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Product from "../../components/Product";
 import Body from "../../components/Body";
-import { getAll } from "../../functions/Products";
+import functionsProducts from "../../functions/Products";
+
 
 export default function Products() {
   const [list, setList] = useState([]);
 
   const get = async () => {
-    setList(await getAll());
+    setList(await functionsProducts.getAll());
   };
 
   useEffect(() => {
