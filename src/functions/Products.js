@@ -29,7 +29,6 @@ export const getID = (id) => {
     .get(`https://fakestoreapi.com/products/${id}`)
     .then(async function ({ data }) {
       let product = await mapProduct([data]);
-      console.log(data);
       return product[0];
     })
     .catch(function (error) {
